@@ -46,9 +46,11 @@ conda env create -n ENVNAME --file environment.yml
 ## Usage
 
 1. Clone this repository to your local machine:
-
+```console
 git clone https://github.com/AHruler/Exploring-AAD.git
 cd Exploring-AAD
+```
+
 
 2. Run the Jupyter notebooks provided in the `notebooks` directory to explore the methods and reproduce the results.
 
