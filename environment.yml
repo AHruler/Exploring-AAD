@@ -1,0 +1,23 @@
+name: audioenv
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - cpuonly
+  - pytorch
+  - torchaudio
+  - torchvision
+  - librosa
+  - pandas
+  - scipy
+  - tqdm
+  - ipykernel
+  - seaborn
+  - pysoundfile
+  - pillow
+  - ipywidgets
+  - modin-ray
+  - python=3.10.9
+  - modin-hdk
+
