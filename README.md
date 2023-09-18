@@ -1,4 +1,4 @@
-# Exploring-AAD: Audio Anomaly Detection in Machine Sounds using Chroma-based Feature: *CENS*
+# Exploring-AAD: Audio Anomaly Detection in Machine Sounds using Chroma snf Mel Frequency Feature: *CENS*, *Log Mel Frequncy* and *MFCC*.
 
 ## Introduction
 
@@ -25,7 +25,16 @@ These descriptions led me to explore musical analysis and classification as a vi
 ## Results 
 ### Fan machine sound anomaly detection - All models and feature combos 
 ***Sorted by best F1 score of the abnormal class -1***
-|  | Model | Machine | Features | AUC | Precision | Recall | Abnormal (-1) F1 | \n | ---: | :----------------- | :---------- | :------------- | ---------: | ------------: | ---------: | -------------------: | \n | 2 | LOF | fan | All-means | 0.99597 | 0.946133 | 0.933876 | 0.889246 | \n | 3 | LOF | fan | mel-means | 0.994428 | 0.94199 | 0.927887 | 0.880223 | \n | 4 | LOF | fan | chroma-means | 0.982158 | 0.92743 | 0.909679 | 0.851983 | \n | 5 | Isolation Forest | fan | All-means | 0.945388 | 0.891961 | 0.85769 | 0.779182 | \n | 6 | LOF | fan | mel | 0.947371 | 0.885866 | 0.83517 | 0.756201 | \n | 0 | AE | fan | chroma | 0.823611 | 0.916898 | 0.861765 | 0.725539 | \n | 1 | AE | fan | mel | 0.696196 | 0.831592 | 0.884314 | 0.556539 |
+
+| Model            | Machine   | Features     |      AUC |   Precision |   Recall |   Abnormal (-1) F1 |
+|:-----------------|:----------|:-------------|---------:|------------:|---------:|-------------------:|
+| LOF              | fan       | All-means    | 0.99597  |    0.946133 | 0.933876 |           0.889246 |
+| LOF              | fan       | mel-means    | 0.994428 |    0.94199  | 0.927887 |           0.880223 |
+| LOF              | fan       | chroma-means | 0.982158 |    0.92743  | 0.909679 |           0.851983 |
+| Isolation Forest | fan       | All-means    | 0.945388 |    0.891961 | 0.85769  |           0.779182 |
+| LOF              | fan       | mel          | 0.947371 |    0.885866 | 0.83517  |           0.756201 |
+| AE               | fan       | chroma       | 0.823611 |    0.916898 | 0.861765 |           0.725539 |
+| AE               | fan       | mel          | 0.696196 |    0.831592 | 0.884314 |           0.556539 |
 
 ***
 
