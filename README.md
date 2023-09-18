@@ -18,7 +18,7 @@ Using Unsupervised learning models: Autoencoders (AE), Isolation Forest (IF) and
 
 
 ## Inspired by Previous (thesis) Project
-The methods employed in this project draw inspiration from my [Master's Thesis in Mathematical Statistics](https://hdl.handle.net/2077/78510), where I reserched audio anomaly detection in cars. The motivation for utilizing chromagram-based features stems from interactions with professionals in the Noise and Vibration Harshness (NVH) during my thesis research. I noticed that, when characterizing abnormal noises in vehicles, professionals often resorted to descriptors like "humming" or "clicking.".
+The methods employed in this project draw inspiration from my [Master's Thesis in Mathematical Statistics](https://hdl.handle.net/2077/78510), where I researched audio anomaly detection in cars. The motivation for utilizing chromagram-based features stems from interactions with professionals in the Noise and Vibration Harshness (NVH) during my thesis research. I noticed that, when characterizing abnormal noises in vehicles, professionals often resorted to descriptors like "humming" or "clicking.".
 These descriptions led me to explore musical analysis and classification as a viable avenue for audio anomaly detection. The chromagram feature was thus integrated into the project's methodology and gave promising results.
 
 ***
@@ -63,7 +63,7 @@ In conclusion, these results underscore the usefullness of mean-based features, 
 | AE        | valve     | mel          | 0.494097 |    0.881232 | 0.8907   |           0.101597 |
 
 ***Mean CENS plot***
-![(#fig:means) CENS Means by Machine type](relative%20Exploring-AAD/figs/mean_cens.png?raw=true "Title")
+![(#fig:means) CENS Means by Machine type](relative%20figs/mean_cens.png?raw=true "Title")
 ***
 
 ## Package Requirements
