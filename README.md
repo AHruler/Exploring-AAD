@@ -63,7 +63,7 @@ In conclusion, these results underscore the usefullness of mean-based features, 
 | AE        | valve     | mel          | 0.494097 |    0.881232 | 0.8907   |           0.101597 |
 
 ***Mean CENS plot***
-![(#fig:means) CENS Means by Machine type](relative%20figs/mean_cens.png?raw=true "Title")
+![(#fig:means) CENS Means by Machine type](figs/mean_cens.png?raw=true "Title")
 ***
 
 ## Package Requirements
