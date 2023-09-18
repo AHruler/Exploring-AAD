@@ -6,9 +6,7 @@ bin-release/
 
 # Other files and folders
 .settings/
-paper*/
-data/
-notebooks/
+data/**
 __pycache__/
 .ipynb_checkpoints/
 .vscode/
