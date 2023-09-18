@@ -10,11 +10,11 @@ This README provides an overview of the project, including its objectives, featu
 
 Chroma features, as inspired by insights from musical analysis (for more info: see [intro](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C7/C7S2_CENS.html) or [longer intro](https://www.researchgate.net/publication/330796993_Chroma_Feature_Extraction), have been employed in this project as a way of capturing distinct information within audio data. These features are based on the twelve pitch spelling attributes (C, C♯, D, ..., B) used in Western music notation. They measure the energy in an audio signal's frame is distributed across these twelve chroma bands.
 
-To obtain chroma energy normalized statistics (CENS), a smoothing window of length ℓ is applied, similar to a Hann window, calculating local weighted averages for each of the twelve chroma components. This process results in sequences of 12-dimensional vectors with nonnegative entries. Subsequently, this sequence is downsampled by a factor of d, and the resulting vectors are normalized with respect to the Euclidean norm (ℓ2-norm).
+To obtain chroma energy normalized statistics (CENS), a smoothing window of length ℓ is applied, similar to a Hann window, calculating local weighted averages for each of the twelve chroma components. This process results in sequences of 12-dimensional vectors with nonnegative entries. Subsequently, this sequence is downsampled by a factor of d, and the resulting vectors are normalized with respect to the Euclidean norm (ℓ2-norm). For instance, consider a rate of 10Hz for a original chroma sequence. With ℓ=41, corresponding to a window size of 4100 milliseconds, and downsampling parameter d=10, the feature rate reduces to 1Hz. The resulting CENS sequences will how lower dimiensions while still retaining important information
 
-For instance, consider a rate of 10Hz for a original chroma sequence. With ℓ=41, corresponding to a window size of 4100 milliseconds, and downsampling parameter d=10, the feature rate reduces to 1Hz. The resulting CENS sequences exhibit a higher degree of similarity between performances while still preserving valuable musical information. This property makes CENS features a valuable asset for content-based retrieval tasks, including audio matching and version identification.
+To asses how well chroma and CENS features can detect anomalies in machine sounds, this project will compare CENS features preformance with the more commmanly used [Mel spectrogram](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum). 
 
-To asses how will chroma and CENS features can detect anomalies in machine sounds, this project will compare CENS features proformance in a AE with the more commmanly used [Mel spectrogram](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum).
+Using Unsupervised learning models: Autoencoders (AE), Isolation Forest (IF) and Local outlier detector (LOF). And the abnormal and normal machine sound clips of fans and valves from the [MIMII Dataset](https://zenodo.org/record/3384388).    
 
 
 ## Inspired by Previous (thesis) Project
@@ -23,7 +23,9 @@ These descriptions led me to explore musical analysis and classification as a vi
 
 ***
 ## Results 
-
+### Fan machine sound anomaly detection - All models and feature combos 
+***Sorted by best F1 score of the abnormal class -1***
+|  | Model | Machine | Features | AUC | Precision | Recall | Abnormal (-1) F1 | \n | ---: | :----------------- | :---------- | :------------- | ---------: | ------------: | ---------: | -------------------: | \n | 2 | LOF | fan | All-means | 0.99597 | 0.946133 | 0.933876 | 0.889246 | \n | 3 | LOF | fan | mel-means | 0.994428 | 0.94199 | 0.927887 | 0.880223 | \n | 4 | LOF | fan | chroma-means | 0.982158 | 0.92743 | 0.909679 | 0.851983 | \n | 5 | Isolation Forest | fan | All-means | 0.945388 | 0.891961 | 0.85769 | 0.779182 | \n | 6 | LOF | fan | mel | 0.947371 | 0.885866 | 0.83517 | 0.756201 | \n | 0 | AE | fan | chroma | 0.823611 | 0.916898 | 0.861765 | 0.725539 | \n | 1 | AE | fan | mel | 0.696196 | 0.831592 | 0.884314 | 0.556539 |
 
 ***
 
@@ -39,11 +41,12 @@ To run the code and reproduce the results, ensure you have the following Python 
 - tensorflow
 - torchaudio (for audio processing and audio feature extraction)
 - librosa (for audio feature extraction)
-- tqdm 
+- tqdm
+- tabulate (for printing tables)
 
 You can install these packages using `pip`:
 ```console
-pip install numpy pandas matplotlib seaborn scikit-learn tensorflow torchaudio librosa tqdm
+pip install numpy pandas matplotlib seaborn scikit-learn tensorflow torchaudio librosa tabulate
 ```
 Using conda you can replicate the environment in environment.yml:
 ```console
@@ -57,7 +60,7 @@ conda env create -n ENVNAME --file environment.yml
 git clone https://github.com/AHruler/Exploring-AAD.git
 cd Exploring-AAD
 ```
-2. download the Fan and Vlave machine sound datasets at [MIMII Dataset](https://zenodo.org/record/3384388, add them to a ./data map.
+2. download the Fan and Vlave machine sound datasets at [MIMII Dataset](https://zenodo.org/record/3384388), add them to a ./data map.
 
 4. Run the Jupyter notebooks provided in the `notebooks` directory to explore the methods and reproduce the results.
 
