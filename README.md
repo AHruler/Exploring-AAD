@@ -3,7 +3,7 @@
 ## Introduction
 
 This project focuses on exploring and comparing various methods for unsupervised audio anomaly detection in machine operation noise, using the [MIMII Dataset](https://zenodo.org/record/3384388). 
-Audio anomaly detection is useful in that it ensuring equipment safety and identifying potential faults. 
+Audio anomaly detection is useful in ensuring equipment safety and identifying potential faults. 
 This README provides an overview of the project, including its objectives, feature space, machine learning models, and key findings.
 
 ## Inspired by Previous (thesis) Project
