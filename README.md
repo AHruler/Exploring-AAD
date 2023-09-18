@@ -6,20 +6,35 @@ This project focuses on exploring and comparing various methods for unsupervised
 Audio anomaly detection is useful in that it ensuring equipment safety and identifying potential faults. 
 This README provides an overview of the project, including its objectives, feature space, machine learning models, and key findings.
 
+## Inspired by Previous (thesis) Project
+The methods employed in this project draw inspiration from my [Master's Thesis in Mathematical Statistics](https://hdl.handle.net/2077/78510), where I researched audio anomaly detection in cars. The motivation for utilizing chromagram-based features stems from interactions with professionals in the Noise and Vibration Harshness (NVH) during my thesis research. I noticed that, when characterizing abnormal noises in vehicles, professionals often resorted to descriptors like "humming" or "clicking.".
+These descriptions led me to explore musical analysis and classification as a viable avenue for audio anomaly detection. The chromagram feature was thus integrated into the project's methodology and gave promising results.
+
 ## Chroma and CENS
 
 Chroma features, as inspired by insights from musical analysis (for more info: see [intro](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C7/C7S2_CENS.html) or [longer intro](https://www.researchgate.net/publication/330796993_Chroma_Feature_Extraction), have been employed in this project as a way of capturing distinct information within audio data. These features are based on the twelve pitch spelling attributes (C, C♯, D, ..., B) used in Western music notation. They measure the energy in an audio signal's frame is distributed across these twelve chroma bands.
 
 To obtain chroma energy normalized statistics (CENS), a smoothing window of length ℓ is applied, similar to a Hann window, calculating local weighted averages for each of the twelve chroma components. This process results in sequences of 12-dimensional vectors with nonnegative entries. Subsequently, this sequence is downsampled by a factor of d, and the resulting vectors are normalized with respect to the Euclidean norm (ℓ2-norm). For instance, consider a rate of 10Hz for a original chroma sequence. With ℓ=41, corresponding to a window size of 4100 milliseconds, and downsampling parameter d=10, the feature rate reduces to 1Hz. The resulting CENS sequences will how lower dimiensions while still retaining important information
 
-To asses how well chroma and CENS features can detect anomalies in machine sounds, this project will compare CENS features preformance with the more commmanly used [Mel spectrogram](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum). 
+## Models
+To asses how well chroma and CENS features can detect anomalies in machine sounds, this project will compare CENS features preformance with the more commmanly used [Mel spectrogram](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum). Using Unsupervised learning models: Autoencoders (AE), Isolation Forest (IF) and Local outlier detector (LOF). And the abnormal and normal machine sound clips of fans and valves from the [MIMII Dataset](https://zenodo.org/record/3384388). Below are short intros to the models. 
 
-Using Unsupervised learning models: Autoencoders (AE), Isolation Forest (IF) and Local outlier detector (LOF). And the abnormal and normal machine sound clips of fans and valves from the [MIMII Dataset](https://zenodo.org/record/3384388).    
+- **Autoencoders**:
+  - A type of neural network architecture.
+  - Effective for handling high-dimensional audio features.
+  - Works by reconstructing input data while capturing abnormal patterns.
+  - Utilizes reconstruction error as a measure of deviation from the norm.
 
+- **Isolation Forest (IF)**:
+  - An unsupervised ensemble learning algorithm.
+  - Assumes that anomalous data points are rare and different.
+  - Divides data into subspaces to isolate anomalies.
+  - Provides an anomaly score based on the number of splits needed to isolate a data point.
 
-## Inspired by Previous (thesis) Project
-The methods employed in this project draw inspiration from my [Master's Thesis in Mathematical Statistics](https://hdl.handle.net/2077/78510), where I researched audio anomaly detection in cars. The motivation for utilizing chromagram-based features stems from interactions with professionals in the Noise and Vibration Harshness (NVH) during my thesis research. I noticed that, when characterizing abnormal noises in vehicles, professionals often resorted to descriptors like "humming" or "clicking.".
-These descriptions led me to explore musical analysis and classification as a viable avenue for audio anomaly detection. The chromagram feature was thus integrated into the project's methodology and gave promising results.
+- **Local Outlier Factor (LoF)**:
+  - Detects anomalies by measuring local density deviations.
+  - Compares data points to their neighbors.
+  - Not commonly used for audio data but has shown strong performance on high-dimensional spectral data, as demonstrated by Yu et al. in [this study](https://ieeexplore.ieee.org/document/9104925).
 
 ***
 ## Results 
