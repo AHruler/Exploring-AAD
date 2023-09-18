@@ -43,7 +43,7 @@ The results reveal interestig insights into the performance of various models an
 
 - **Mean Features**: Across all models, using mean features performed exceptionally well, with LOF utilizing all features means and just mel feature means achieving near-perfect classification. This demonstrates the effectiveness of mean-based statistics in capturing abnormal patterns.
 
-- **Autoencoder (AE) Improvement with Chroma**: In the case of fan machine sound anomaly detection, it's interesting to observe a substantial improvement in the F1 score of the AE model when using chroma features compared to mel spectrogram features. This improvement is evident in a [bar plot](#fig:means), which highlights significant differences in mean pitch between the classes for G and G#. This suggests that chroma features are particularly effective for the AE model in this context.
+- **Autoencoder (AE) Improvement with Chroma**: In the case of fan machine sound anomaly detection, it's interesting to observe a substantial improvement in the F1 score of the AE model when using chroma features compared to mel spectrogram features. This improvement may be due to the chromagrams of abnormal and normal sound clips looking more diffent then the mel spectrogram. This [bar plot](#fig-means) of the means, show significant differences in mean pitch between the classes for G and G#. To see the spectrograms themselves: *Check out the notebooks!*
 
 - **Valve Machine Sound Anomaly Detection**: The valve machine sound detection results display comparatively lower metrics, indicating the complexity of anomaly detection task, as the feature space + model that may work great in one context does not necessarily translate to all sound anomoly detection tasks. LOF with various feature combinations showcases better performance, but the overall metrics for valve machine sound detection remain modest.
 
@@ -78,7 +78,7 @@ The results reveal interestig insights into the performance of various models an
 | AE        | valve     | mel          | 0.494097 |    0.881232 | 0.8907   |           0.101597 |
 
 ***Mean CENS plot***
-![(#fig:means) CENS Means by Machine type](figs/mean_cens.png?raw=true "Title")
+![(#fig-means) CENS Means by Machine type](figs/mean_cens.png?raw=true "Title")
 ***
 
 ## Package Requirements
