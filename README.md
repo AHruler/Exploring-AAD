@@ -23,6 +23,19 @@ These descriptions led me to explore musical analysis and classification as a vi
 
 ***
 ## Results 
+
+The results reveal interestig insights into the performance of various models and feature combinations for fan machine sound anomaly detection. Notably:
+
+- **Mean Features**: Across all models, using mean features performed exceptionally well, with LOF utilizing all features means and just mel feature means achieving near-perfect classification. This demonstrates the effectiveness of mean-based statistics in capturing abnormal patterns.
+
+- **Autoencoder (AE) Improvement with Chroma**: In the case of fan machine sound anomaly detection, it's interesting to observe a substantial improvement in the F1 score of the AE model when using chroma features compared to mel spectrogram features. This improvement is evident in a bar plot ([#fig-meanchromafan]), which highlights significant differences in mean pitch between the classes for G and G#. This suggests that chroma features are particularly effective for the AE model in this context.
+
+- **Valve Machine Sound Anomaly Detection**: The valve machine sound detection results display comparatively lower metrics, indicating the complexity of anomaly detection task, as the feature space + model that may work great in one context does not necessarily translate to all sound anomoly detection tasks. LOF with various feature combinations showcases better performance, but the overall metrics for valve machine sound detection remain modest.
+
+- **LOF Dominance (!!)**: Across both machine types and feature combinations, the LOF model consistently outperforms other models in terms of F1 scores, with LOF using chroma-means for fan sound achieving an abnormal F1 score of 0.851983 aswell as a AUc score near very close to 1. This highlights the usefullness of LOF for audio anomaly detection.
+
+In conclusion, these results underscore the usefullness of mean-based features, the advantage of chroma features for AE models in specific scenarios, and the dominance of LOF as a robust choice for audio anomaly detection, achieving near-perfect classification even with mel features alone. While the project aimed to explore the utility of chroma in machine anomaly detection, it suggests that chroma features hold substantial promise when coupled with certain models like AE, while LOF consistently delivers excellent results.
+
 ### Fan machine sound anomaly detection - All models and feature combos 
 ***Sorted by best F1 score of the abnormal class -1***
 
@@ -35,6 +48,19 @@ These descriptions led me to explore musical analysis and classification as a vi
 | LOF              | fan       | mel          | 0.947371 |    0.885866 | 0.83517  |           0.756201 |
 | AE               | fan       | chroma       | 0.823611 |    0.916898 | 0.861765 |           0.725539 |
 | AE               | fan       | mel          | 0.696196 |    0.831592 | 0.884314 |           0.556539 |
+
+### Valve machine sound anomaly detection - All models and feature combos 
+***Sorted by best F1 score of the abnormal class -1***
+
+| Model     | Machine   | Features     |      AUC |   Precision |   Recall |   Abnormal (-1) F1 |
+|:----------|:----------|:-------------|---------:|------------:|---------:|-------------------:|
+| LOF       | valve     | All-means    | 0.665219 |    0.859019 | 0.414323 |           0.258385 |
+| LOF       | valve     | mel-means    | 0.666815 |    0.859777 | 0.402551 |           0.25641  |
+| LOF + PCA | valve     | All-means    | 0.641049 |    0.851031 | 0.362982 |           0.243201 |
+| LOF + PCA | valve     | mel-means    | 0.618747 |    0.839748 | 0.339111 |           0.233017 |
+| LOF       | valve     | chroma-means | 0.575024 |    0.83062  | 0.292675 |           0.223339 |
+| AE        | valve     | chroma       | 0.497541 |    0.882027 | 0.883661 |           0.112202 |
+| AE        | valve     | mel          | 0.494097 |    0.881232 | 0.8907   |           0.101597 |
 
 ***
 
