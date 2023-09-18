@@ -49,7 +49,7 @@ The results reveal interestig insights into the performance of various models an
 
 - **LOF Dominance (!!)**: Across both machine types and feature combinations, the LOF model consistently outperforms other models in terms of F1 scores, with LOF using chroma-means for fan sound achieving an abnormal F1 score of 0.851983 aswell as a AUc score near very close to 1. This highlights the usefullness of LOF for audio anomaly detection.
 
-In conclusion, these results underscore the usefullness of mean-based features, the advantage of chroma features for AE models in specific scenarios, and the dominance of LOF as a robust choice for audio anomaly detection, achieving near-perfect classification even with mel features alone. While the project aimed to explore the utility of chroma in machine anomaly detection, it suggests that chroma features hold substantial promise when coupled with certain models like AE, while LOF consistently delivers excellent results.
+***In summary***, these results show the usefullness of mean-based features, the advantage of chroma features for AE models in specific scenarios, and the dominance of LOF as a robust choice for audio anomaly detection, achieving near-perfect classification even with mel features alone. While the project aimed to explore the utility of chroma in machine anomaly detection, it suggests that chroma features hold substantial promise when coupled with certain models like AE, while LOF consistently delivers excellent results.
 
 ### Fan machine sound anomaly detection - All models and feature combos 
 ***Sorted by best F1 score of the abnormal class -1***
