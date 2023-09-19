@@ -1,10 +1,9 @@
 # Exploring-AAD: Audio Anomaly Detection in Machine Sounds using Chroma snf Mel Frequency Feature: *CENS*, *Log Mel Frequncy* and *MFCC*.
 
-## Introduction
-
 This project focuses on exploring and comparing various methods for unsupervised audio anomaly detection in machine operation noise, using the [MIMII Dataset](https://zenodo.org/record/3384388). 
 Audio anomaly detection is useful in ensuring equipment safety and identifying potential faults. 
-This README provides an overview of the project, including its objectives, feature space, machine learning models, and key findings.
+
+This README provides an overview of the project, including its objectives, feature space, machine learning models, and key results.
 
 ## Inspired by Previous (thesis) Project
 The methods employed in this project draw inspiration from my [Master's Thesis in Mathematical Statistics](https://hdl.handle.net/2077/78510), where I researched audio anomaly detection in cars. The motivation for utilizing chromagram-based features stems from interactions with professionals in the Noise and Vibration Harshness (NVH) during my thesis research. I noticed that, when characterizing abnormal noises in vehicles, professionals often resorted to descriptors like "humming" or "clicking.".
@@ -39,7 +38,7 @@ To asses how well chroma and CENS features can detect anomalies in machine sound
 ***
 ## Results 
 
-The results reveal interestig insights into the performance of various models and feature combinations for fan machine sound anomaly detection. Notably:
+Below are som key reults from using Mel frequeny and chroma features on the fan and valve datasets: which show interestig insights into the performance of various models and feature combinations for machine sound anomaly detection:
 
 - **Mean Features**: Across all models, using mean features performed exceptionally well, with LOF utilizing all features means and just mel feature means achieving near-perfect classification. This demonstrates the effectiveness of mean-based statistics in capturing abnormal patterns.
 
