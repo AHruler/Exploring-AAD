@@ -1,4 +1,4 @@
-# Exploring-AAD: Audio Anomaly Detection in Machine Sounds using Chroma snf Mel Frequency Feature: *CENS*, *Log Mel Frequncy* and *MFCC*.
+# Exploring-AAD: Audio Anomaly Detection in Machine Sounds using Chroma and Mel Frequency Feature: *CENS*, *Log Mel Frequncy* and *MFCC*.
 
 This project focuses on exploring and comparing various methods for unsupervised audio anomaly detection in machine operation noise, using the [MIMII Dataset](https://zenodo.org/record/3384388). 
 Audio anomaly detection is useful in ensuring equipment safety and identifying potential faults. 
@@ -104,7 +104,7 @@ Below are som key reults from using Mel frequeny and chroma features on the fan 
 git clone https://github.com/AHruler/Exploring-AAD.git
 cd Exploring-AAD
 ```
-2. download the Fan and Vlave machine sound datasets at [MIMII Dataset](https://zenodo.org/record/3384388), add them to a ./data map.
+2. Download the Fan and Vlave machine sound datasets at [MIMII Dataset](https://zenodo.org/record/3384388), add them to a ./data map.
 
 4. Run the Jupyter notebooks provided in the `notebooks` directory to explore the methods and reproduce the results.
 
