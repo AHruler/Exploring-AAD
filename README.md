@@ -5,17 +5,33 @@ Audio anomaly detection is useful in ensuring equipment safety and identifying p
 
 This README provides an overview of the project, including its objectives, feature space, machine learning models, and key results.
 
-## Inspired by Previous (thesis) Project
+# Contents
+- [Previous Project](#Previous) 💡
+- [Approach](#Approach) 🧐
+    - [Chroma](#Chroma) 🎼
+    - [ML Models](#ML) 🛠
+- [Final Result](#Results) 😁
+- [Usage](#Usage) 🔆
+    - [Package Requirements](#req) ❕
+- [License](#License) 📄
+- [Acknowledgments](#Acknowledgments) 📣 
+  
+  
+## Inspired by Previous (thesis) Project 
+<a name="Previous"></a>
 The methods employed in this project draw inspiration from my [Master's Thesis in Mathematical Statistics](https://hdl.handle.net/2077/78510), where I researched audio anomaly detection in cars. The motivation for utilizing chromagram-based features stems from interactions with professionals in the Noise and Vibration Harshness (NVH) during my thesis research. I noticed that, when characterizing abnormal noises in vehicles, professionals often resorted to descriptors like "humming" or "clicking.".
 These descriptions led me to explore musical analysis and classification as a viable avenue for audio anomaly detection. The chromagram feature was thus integrated into the project's methodology and gave promising results.
 
-## Chroma and CENS
+# Approach
 
+## Chroma and CENS
+<a name="Chroma"></a>
 Chroma features, as inspired by insights from musical analysis (for more info: see [intro](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C7/C7S2_CENS.html) or [longer intro](https://www.researchgate.net/publication/330796993_Chroma_Feature_Extraction), have been employed in this project as a way of capturing distinct information within audio data. These features are based on the twelve pitch spelling attributes (C, C♯, D, ..., B) used in Western music notation. They measure the energy in an audio signal's frame is distributed across these twelve chroma bands.
 
 To obtain chroma energy normalized statistics (CENS), a smoothing window of length ℓ is applied, similar to a Hann window, calculating local weighted averages for each of the twelve chroma components. This process results in sequences of 12-dimensional vectors with nonnegative entries. Subsequently, this sequence is downsampled by a factor of d, and the resulting vectors are normalized with respect to the Euclidean norm (ℓ2-norm). For instance, consider a rate of 10Hz for a original chroma sequence. With ℓ=41, corresponding to a window size of 4100 milliseconds, and downsampling parameter d=10, the feature rate reduces to 1Hz. The resulting CENS sequences will how lower dimiensions while still retaining important information
 
 ## Models
+<a name="ML"></a>
 To asses how well chroma and CENS features can detect anomalies in machine sounds, this project will compare CENS features preformance with the more commmanly used [Mel spectrogram](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum). Using Unsupervised learning models: Autoencoders (AE), Isolation Forest (IF) and Local outlier detector (LOF). And the abnormal and normal machine sound clips of fans and valves from the [MIMII Dataset](https://zenodo.org/record/3384388). Below are short intros to the models. 
 
 - **Autoencoders**:
@@ -36,7 +52,7 @@ To asses how well chroma and CENS features can detect anomalies in machine sound
   - Not commonly used for audio data but has shown strong performance on high-dimensional spectral data, as demonstrated by Yu et al. in [this study](https://ieeexplore.ieee.org/document/9104925).
 
 ***
-## Results 
+# Results 
 
 Below are som key reults from using Mel frequeny and chroma features on the fan and valve datasets: which show interestig insights into the performance of various models and feature combinations for machine sound anomaly detection:
 
@@ -81,9 +97,21 @@ Below are som key reults from using Mel frequeny and chroma features on the fan 
 ![(#fig-means) CENS Means by Machine type](figs/mean_cens.png?raw=true "Title")
 
 ***
+# Usage
 
+1. Clone this repository to your local machine:
+```console
+git clone https://github.com/AHruler/Exploring-AAD.git
+cd Exploring-AAD
+```
+2. download the Fan and Vlave machine sound datasets at [MIMII Dataset](https://zenodo.org/record/3384388), add them to a ./data map.
+
+4. Run the Jupyter notebooks provided in the `notebooks` directory to explore the methods and reproduce the results.
+
+5. Experiment with different configurations, models, and datasets to further explore audio anomaly detection techniques.
+   
 ## Package Requirements
-
+<a name="req"></a>
 To run the code and reproduce the results, ensure you have the following Python packages installed:
 
 - numpy
@@ -105,19 +133,6 @@ Using conda you can replicate the environment in environment.yml:
 ```console
 conda env create -n ENVNAME --file environment.yml
 ```
-
-## Usage
-
-1. Clone this repository to your local machine:
-```console
-git clone https://github.com/AHruler/Exploring-AAD.git
-cd Exploring-AAD
-```
-2. download the Fan and Vlave machine sound datasets at [MIMII Dataset](https://zenodo.org/record/3384388), add them to a ./data map.
-
-4. Run the Jupyter notebooks provided in the `notebooks` directory to explore the methods and reproduce the results.
-
-5. Experiment with different configurations, models, and datasets to further explore audio anomaly detection techniques.
 
 ## License
 
